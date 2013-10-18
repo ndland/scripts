@@ -4,3 +4,4 @@ unlink .zshrc
 unlink .vim
 unlink .vimrc
 unlink .zprofile
+unlink .slate
