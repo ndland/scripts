@@ -1,3 +1,4 @@
+cd ~
 unlink .bash_profile
 unlink .bashrc
 unlink .zshrc
