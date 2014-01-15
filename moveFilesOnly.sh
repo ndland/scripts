@@ -7,7 +7,11 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-files="zlogin vimrc zshrc vim slate"    # list of files/folders to symlink in homedir
+if [ `uname` == 'Darwin' ]; then
+  files="rc.lua zlogin vimrc zshrc vim slate"
+else
+  files="rc.lua zlogin vimrc zshrc vim"
+fi
 
 ##########
 
@@ -21,11 +25,16 @@ echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
 
-# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks 
-for file in $files; do
+# move any existing dotfiles in homedir to dotfiles_old directory, then create symlinks
     echo "Moving any existing dotfiles from ~ to $olddir"
-    mv ~/.$file ~/dotfiles_old/
+for file in $files; do
     echo "Creating symlink to $file in home directory."
-    ln -s $dir/$file ~/.$file
+    if [ $file == rc.lua ]; then
+      mv ~/$file ~/dotfiles_old/
+      ln -s $dir/rc.lua ~/.config/awesome/rc.lua
+    else
+      mv ~/.$file ~/dotfiles_old/
+      ln -s $dir/$file ~/.$file
+    fi
 done
 
