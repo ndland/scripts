@@ -31,6 +31,7 @@ for file in $files; do
     echo "Creating symlink to $file in home directory."
     if [ $file == rc.lua ]; then
       mv ~/$file ~/dotfiles_old/
+      mkdir -p ~/.config/awesome
       ln -s $dir/rc.lua ~/.config/awesome/rc.lua
     else
       mv ~/.$file ~/dotfiles_old/
