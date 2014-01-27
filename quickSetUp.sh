@@ -60,7 +60,7 @@ wait
 echo "done!"
 
 echo "Sourcing zshrc..."
-. ~/.zshrc
+source ~/.zshrc
 wait
 echo "done!"
 
