@@ -16,7 +16,7 @@ git clone git@github.com:ndland/personalization.git
 wait
 echo "done!"
 
-cd dotfiles/
+cd dotfiles
 
 echo "submodule init dotfiles..."
 git submodule init
@@ -59,14 +59,24 @@ echo "Running moveFilesOnly.sh"
 wait
 echo "done!"
 
+echo "installing curl"
+sudo apt-get install curl
+
+echo "installing rvm"
+\curl -sSL https://get.rvm.io | bash -s stable
+wait
+
+echo "installing ruby 2.0.0"
+rvm install 2.0.0
+wait
+
+echo "setting ruby 2.0.0 as default"
+rvm use --default 2.0.0
+wait
+
 echo "Sourcing zshrc..."
 source ~/.zshrc
 wait
 echo "done!"
-
-echo "installing rvm"
-\curl -sSL https://get.rvm.io | bash -s stable
-
-wait
 
 echo "All done!"
