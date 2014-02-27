@@ -8,9 +8,9 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 if [ `uname` == 'Darwin' ]; then
-  files="rc.lua zlogin vimrc zshrc vim slate"
+  files="config zlogin vimrc zshrc vim slate"
 else
-  files="rc.lua zlogin vimrc zshrc vim"
+  files="config zlogin vimrc zshrc vim"
 fi
 
 ##########
@@ -29,10 +29,10 @@ echo "...done"
     echo "Moving any existing dotfiles from ~ to $olddir"
 for file in $files; do
     echo "Creating symlink to $file in home directory."
-    if [ $file == rc.lua ]; then
+    if [ $file == config ]; then
       mv ~/$file ~/dotfiles_old/
-      mkdir -p ~/.config/awesome
-      ln -s $dir/rc.lua ~/.config/awesome/rc.lua
+      mkdir -p ~/.i3/
+      ln -s $dir/config ~/.i3/
     else
       mv ~/.$file ~/dotfiles_old/
       ln -s $dir/$file ~/.$file
