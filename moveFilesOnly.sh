@@ -8,9 +8,9 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 if [ `uname` == 'Darwin' ]; then
-  files="config zlogin vimrc zshrc vim slate"
+  files="i3status.conf config zlogin vimrc zshrc vim slate"
 else
-  files="config zlogin vimrc zshrc vim"
+  files="i3status.conf config zlogin vimrc zshrc vim"
 fi
 
 ##########
