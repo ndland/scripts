@@ -3,6 +3,7 @@
 echo "Starting the setup..."
 
 cd ~
+mkdir ~/.vimundo
 
 echo "cloning dotfiles..."
 git clone git@github.com:ndland/dotfiles.git
