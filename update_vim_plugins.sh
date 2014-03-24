@@ -15,3 +15,4 @@ git clone https://github.com/jelera/vim-javascript-syntax.git
 git clone https://github.com/msanders/snipmate.vim.git
 git clone https://github.com/bling/vim-airline.git
 git clone https://github.com/bronson/vim-trailing-whitespace.git
+git clone https://github.com/aclissold/lunarized-syntax
