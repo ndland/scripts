@@ -25,6 +25,7 @@ echo "done!"
 
 echo "making dir ~/.zsh/git-prompt..."
 mkdir -p ~/.zsh/git-prompt
+mkdir -p ~/.zsh/zsh-history-substring-search
 echo "done!"
 
 cd ~
@@ -43,6 +44,11 @@ echo "copying gitstatus.py to ~/.zsh/git-prompt..."
 cp zsh-git-prompt/gitstatus.py ~/.zsh/git-prompt
 echo "done!"
 
+echo "copying gitstatus.py to ~/.zsh/git-prompt..."
+cp zsh-history-substring-search/zsh-history-substring-search.zsh ~/.zsh/zsh-history-substring-search
+
+echo "done!"
+
 cd ~/dotfiles/
 
 echo "Running moveFilesOnly.sh"
@@ -57,6 +63,7 @@ echo "installing rvm"
 
 echo "installing ruby 2.0.0"
 rvm install 2.0.0
+wait
 
 echo "setting ruby 2.0.0 as default"
 rvm use --default 2.0.0
