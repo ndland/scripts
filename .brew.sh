@@ -7,11 +7,11 @@
 # 	" /usr/local/lib/libosxfuse_i32.la      " \
 # 	" /usr/local/lib/libosxfuse_i64.la      " \
 # 	" /usr/local/lib/pkgconfig/osxfuse.pc   " )
-# 
+#
 # truecrypt="/Applications/TrueCrypt.app/Contents/Resources/Library"
-# 
+#
 # [ ! -d $truecrypt ] && mkdir -p $truecrypt
-# 
+#
 # for lib in "${libs[@]}"
 # do
 # 	mv $lib "${truecrypt}/" && echo "Moved ${lib} to ${truecrypt}." || echo "Problem moving: ${lib} to ${truecrypt}"
