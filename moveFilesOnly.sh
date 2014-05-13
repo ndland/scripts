@@ -10,7 +10,7 @@ olddir=~/dotfiles_old             # old dotfiles backup directory
 if [ `uname` == 'Darwin' ]; then
   files="gitconfig zlogin vimrc zshrc vim slate"
 else
-  files="termconfig gitconfig zshenv rc.lua zlogin vimrc zshrc vim"
+  files="xinitrc termconfig gitconfig zshenv rc.lua zlogin vimrc zshrc vim"
 fi
 
 ##########
@@ -33,6 +33,7 @@ for file in $files; do
       mkdir -p ~/.config/awesome
       ln -s $dir/$file ~/.config/awesome
     elif [ $file == termconfig ]; then
+      mkdir -p ~/.config/terminator/
       ln -s $dir/$file ~/.config/terminator/config
     else
       mv ~/.$file ~/dotfiles_old/
