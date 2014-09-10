@@ -58,15 +58,15 @@ echo "done!"
 echo "installing curl"
 sudo apt-get install curl
 
-echo "installing rvm"
-\curl -sSL https://get.rvm.io | bash -s stable
+# echo "installing rvm"
+# \curl -sSL https://get.rvm.io | bash -s stable
 
-echo "installing ruby 2.0.0"
-rvm install 2.0.0
-wait
+# echo "installing ruby 2.0.0"
+# rvm install 2.0.0
+# wait
 
-echo "setting ruby 2.0.0 as default"
-rvm use --default 2.0.0
+# echo "setting ruby 2.0.0 as default"
+# rvm use --default 2.0.0
 
 echo "Sourcing zshrc..."
 source ~/.zshrc
