@@ -7,6 +7,7 @@
 
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
+confg=~/.config
 if [ `uname` == 'Darwin' ]; then
   files="tmux.conf gitconfig zlogin vimrc zshrc vim slate"
 else
@@ -18,6 +19,7 @@ fi
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
+mkdir -p $config
 echo "...done"
 # change to the dotfiles directory
 echo "Changing to the $dir directory"

@@ -56,7 +56,7 @@ echo "Running moveFilesOnly.sh"
 echo "done!"
 
 echo "installing curl"
-sudo apt-get install curl
+# sudo apt-get install curl
 
 # echo "installing rvm"
 # \curl -sSL https://get.rvm.io | bash -s stable
