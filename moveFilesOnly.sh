@@ -11,7 +11,7 @@ confg=~/.config
 if [ `uname` == 'Darwin' ]; then
   files="tmux.conf gitconfig zlogin vimrc zshrc vim slate"
 else
-  files="tmux.conf ackrc xinitrc termconfig gitconfig zshenv rc.lua zlogin vimrc zshrc vim"
+  files="vrapperrc tmux.conf ackrc xinitrc termconfig gitconfig zshenv rc.lua zlogin vimrc zshrc vim"
 fi
 
 ##########
