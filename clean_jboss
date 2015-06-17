@@ -1,0 +1,9 @@
+#!/bin/zsh
+
+echo "Cleaning the tmp directory"
+cd /home/nland/Dev/jboss/jboss-5.1.0.GA/server/default/tmp/
+rm -rf *
+
+echo "Cleaning the work directory"
+cd /home/nland/Dev/jboss/jboss-5.1.0.GA/server/default/work/
+rm -rf *
