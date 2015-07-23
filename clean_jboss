@@ -1,9 +1,11 @@
-#!/bin/zsh
+#!/bin/bash
 
 echo "Cleaning the tmp directory"
-cd /Users/Nick/dev/a2c/Dev/jboss/jboss-5.1.0.GA/server/default/tmp/
-rm -rf *
+cd /Users/Nick/dev/a2c/Dev/jboss/jboss-5.1.0.GA/server/default/tmp/ > /dev/null 2>&1
+rm -rf * > /dev/null 2>&1 || exit_on_error "Failed to clean /tmp"
 
 echo "Cleaning the work directory"
-cd /Users/Nick/dev/a2c/Dev/jboss/jboss-5.1.0.GA/server/default/work/
-rm -rf *
+cd /Users/Nick/dev/a2c/Dev/jboss/jboss-5.1.0.GA/server/default/work/ > /dev/null 2>&1
+rm -rf * > /dev/null 2>&1 || exit_on_error "Failed to clean /work"
+
+echo "All Clean!"
