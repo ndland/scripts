@@ -54,7 +54,7 @@ for directory in $directories; do
   echo "Moving $directory to ~/dotfiles_old"
   mv ~/.$directory ~/dotfiles_old > /dev/null 2>&1
   echo "Symlinking $directory to your home directory"
-  ln -s $dir/$directory ~/.$directory > /dev/null 2>&1
+  ln -Ffhins $dir/$directory/ ~/.$directory > /dev/null 2>&1
 done
 
 echo "All done!"
