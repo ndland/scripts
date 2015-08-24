@@ -1,5 +1,9 @@
 #!/bin/bash
 
+now=$(date "+%H:%M on %Y-%m-%d")
+
+echo "Last time we cleaned jBoss:" ${now}
+
 echo "Cleaning the tmp directory"
 cd /Users/Nick/dev/a2c/Dev/jboss/jboss-5.1.0.GA/server/default/tmp/ > /dev/null 2>&1
 rm -rf * > /dev/null 2>&1 || exit_on_error "Failed to clean /tmp"
