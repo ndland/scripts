@@ -2,6 +2,8 @@
 
 now=$(date "+%H:%M on %Y-%m-%d")
 
+reset
+
 echo "Last time we cleaned jBoss:" ${now}
 
 echo "Cleaning the tmp directory"
