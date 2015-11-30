@@ -14,7 +14,7 @@ confg=~/.config
 # If you're on a mac, otherwise, assume Linux.
 if [ `uname` == 'Darwin' ]; then
   files="vrapperrc ackrc tmux.conf gitconfig zlogin vimrc zshrc"
-  directories="vim atom tmux"
+  directories="emacs.d vim atom tmux"
 else
   files="vrapperrc tmux.conf ackrc xinitrc termconfig gitconfig zshenv
          rc.lua zlogin vimrc zshrc vim"
