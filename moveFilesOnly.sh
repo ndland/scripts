@@ -10,19 +10,24 @@
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
 confg=~/.config
+userBin=~/bin
+oldUserBin=~/dotfiles_old/scripts
+userScripts=~/scripts
 
 # If you're on a mac, otherwise, assume Linux.
 if [ `uname` == 'Darwin' ]; then
-  files="vrapperrc ackrc tmux.conf gitconfig zlogin vimrc zshrc"
-  directories="emacs.d vim atom tmux"
+    files="vrapperrc ackrc tmux.conf gitconfig vimrc zshrc"
+    directories="emacs.d vim atom tmux"
+    scripts="clean_jboss emacsclient ftb emacsclient-terminal emacs"
 else
-  files="vrapperrc tmux.conf ackrc xinitrc termconfig gitconfig zshenv
-         rc.lua zlogin vimrc zshrc vim"
+    files="vrapperrc tmux.conf ackrc xinitrc termconfig gitconfig zshenv
+	 rc.lua zlogin vimrc zshrc vim"
 fi
 
 # create dotfiles_old in homedir
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
+mkdir -p $oldUserBin
 mkdir -p $config
 echo "...done"
 # change to the dotfiles directory
@@ -32,29 +37,36 @@ echo "...done"
 
 # move any existing dotfiles in homedir to dotfiles_old directory,
 # then create symlinks
-    echo "Moving any existing dotfiles from ~ to $olddir"
+echo "Moving any existing dotfiles from ~ to $olddir"
 for file in $files; do
     echo "Creating symlink to $file in home directory."
     if [ $file == rc.lua ]; then
-      mv ~/$file ~/dotfiles_old/ > /dev/null 2>&1
-      mkdir -p ~/.config/awesome > /dev/null 2>&1
-      ln -s $dir/$file ~/.config/awesome > /dev/null 2>&1
+	mv ~/$file ~/dotfiles_old/ > /dev/null 2>&1
+	mkdir -p ~/.config/awesome > /dev/null 2>&1
+	ln -s $dir/$file ~/.config/awesome > /dev/null 2>&1
     elif [ $file == termconfig ]; then
-      mkdir -p ~/.config/terminator/ > /dev/null 2>&1
-      ln -s $dir/$file ~/.config/terminator/config > /dev/null 2>&1
+	mkdir -p ~/.config/terminator/ > /dev/null 2>&1
+	ln -s $dir/$file ~/.config/terminator/config > /dev/null 2>&1
     else
-      mv ~/.$file ~/dotfiles_old/ > /dev/null 2>&1
-      ln -s $dir/$file ~/.$file > /dev/null 2>&1
+	mv ~/.$file ~/dotfiles_old/ > /dev/null 2>&1
+	ln -s $dir/$file ~/.$file > /dev/null 2>&1
     fi
 done
 
 # Move any existing directories out of homedir to dotfiles_old, and create some
 # new symlinks.
 for directory in $directories; do
-  echo "Moving $directory to ~/dotfiles_old"
-  mv ~/.$directory ~/dotfiles_old > /dev/null 2>&1
-  echo "Symlinking $directory to your home directory"
-  ln -Ffhins $dir/$directory/ ~/.$directory > /dev/null 2>&1
+    echo "Moving $directory to ~/dotfiles_old"
+    mv ~/.$directory ~/dotfiles_old > /dev/null 2>&1
+    echo "Symlinking $directory to your home directory"
+    ln -Fhfns $dir/$directory/ ~/.$directory > /dev/null 2>&1
+done
+
+for script in $scripts; do
+    echo "Moving $script to $oldUserBin"
+    mv $userBin/$script ~/dotfiles_old/scripts > /dev/null 2>&1
+    echo "Symlinking $script to $userBin"
+    ln -Fhfns $userScripts/$script/ $userBin > /dev/null 2>&1
 done
 
 echo "All done!"
