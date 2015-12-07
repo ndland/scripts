@@ -1,0 +1,3 @@
+#!/bin/sh
+
+exec /opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/bin/emacsclient --socket-name ~/.emacs.d/server/server -t -a "" $* &
