@@ -18,7 +18,7 @@ userScripts=~/scripts
 if [ `uname` == 'Darwin' ]; then
     files="vrapperrc ackrc tmux.conf gitconfig vimrc zshrc"
     directories="emacs.d vim atom tmux"
-    scripts="clean_jboss emacsclient ftb emacsclient-terminal emacs"
+    scripts="clean_jboss ftb emacs"
 else
     files="vrapperrc tmux.conf ackrc xinitrc termconfig gitconfig zshenv
 	 rc.lua zlogin vimrc zshrc vim"

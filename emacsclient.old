@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Run Emacs 24 emacsclient to open in existing instance of Emacs
+
+# -a "" : Launch emacs if not started
+# exec /opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/bin/emacsclient --socket-name ~/.emacs.d/server/server -a "" $* &
+
+/opt/homebrew-cask/Caskroom/emacs/24.5-1/Emacs.app/Contents/MacOS/bin/emacsclient --socket-name ~/.emacs.d/server/server -a "" "$@" &
