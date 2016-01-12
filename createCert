@@ -1,0 +1,10 @@
+#!/bin/sh
+ 
+FIRST_ARGUMENT="$1"
+echo "Creating Saml Cert $FIRST_ARGUMENT!"
+
+openssl req -new -newkey rsa:2048 -nodes -sha256 -out $FIRST_ARGUMENT.sha256.csr -keyout $FIRST_ARGUMENTprivateekey256.pem -subj "/C=US/ST=MI/L=Rochester Hills/O=authen2cate, LLC/CN=authen2cate/emailAddress=support@authen2cate.com"
+
+openssl pkcs8 -topk8 -inform PEM -outform DER -in $FIRST_ARGUMENTkey256.pem -out $FIRST_ARGUMENT-PrivateKeyCert.der -nocrypt
+
+openssl x509 -req -in  $FIRST_ARGUMENT.sha256.csr -outform DER -out $FIRST_ARGUMENT-PublicCert.der -signkey $FIRST_ARGUMENTkey256.pem -days 9825
