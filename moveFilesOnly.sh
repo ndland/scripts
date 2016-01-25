@@ -5,8 +5,6 @@
 # UPDATED BY Nicholas Land
 ############################
 
-set -x
-
 ########## Variables
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
