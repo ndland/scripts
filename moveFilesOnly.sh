@@ -6,10 +6,9 @@
 ############################
 
 ########## Variables
-
 dir=~/dotfiles                    # dotfiles directory
 olddir=~/dotfiles_old             # old dotfiles backup directory
-confg=~/.config
+config=~/.config
 userBin=~/bin
 oldUserBin=~/dotfiles_old/scripts
 userScripts=~/scripts
@@ -17,18 +16,18 @@ userScripts=~/scripts
 # If you're on a mac, otherwise, assume Linux.
 if [ `uname` == 'Darwin' ]; then
     files="vrapperrc ackrc tmux.conf gitconfig vimrc zshrc"
-    directories="emacs.d vim atom tmux"
-    scripts="clean_jboss ftb emacs"
+    directories="emacs.d atom tmux"
+    scripts="clean_jboss emacs"
 else
     files="vrapperrc tmux.conf ackrc xinitrc termconfig gitconfig zshenv
 	 rc.lua zlogin vimrc zshrc vim"
 fi
 
 # create dotfiles_old in homedir
-echo "Creating $olddir for backup of any existing dotfiles in ~"
-mkdir -p $olddir
-mkdir -p $oldUserBin
-mkdir -p $config
+echo "Creating backups of any existing dotfiles in $olddir"
+mkdir -p "$olddir"
+mkdir -p "$oldUserBin"
+mkdir -p "$config"
 echo "...done"
 # change to the dotfiles directory
 echo "Changing to the $dir directory"
@@ -59,7 +58,7 @@ for directory in $directories; do
     echo "Moving $directory to ~/dotfiles_old"
     mv ~/.$directory ~/dotfiles_old > /dev/null 2>&1
     echo "Symlinking $directory to your home directory"
-    ln -Fhfns $dir/$directory/ ~/.$directory > /dev/null 2>&1
+    ln -Ffns $dir/$directory/ ~/.$directory > /dev/null 2>&1
 done
 
 for script in $scripts; do
