@@ -1,7 +1,7 @@
 <?php
 
 // Put your device token here (without spaces):
-$deviceToken = '8a484ae83bedf9b65c3f9ef26e2e72b693ef4e33ca81a59682de0da3a0714d74';
+$deviceToken = 'd07801403ec7e8b8c9f25395c39de230f3b86a872ceef2445605f712a21aa97a';
 
 // Put your private key's passphrase here:
 $passphrase = 'authen2cate';
@@ -56,7 +56,6 @@ $result = fwrite($fp, $msg, strlen($msg));
 if (!$result)
 	echo 'Message not delivered' . PHP_EOL;
 else
-	echo 'Message successfully result: ' . $result . "\n";
 	echo 'Message successfully delivered' . PHP_EOL;
 
 // Close the connection to the server
