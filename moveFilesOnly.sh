@@ -15,7 +15,7 @@ userScripts=~/code/scripts
 
 # If you're on a mac, otherwise, assume Linux.
 if [ `uname` == 'Darwin' ]; then
-    files="vrapperrc ackrc tmux.conf gitconfig vimrc zshrc"
+    files="vrapperrc ackrc tmux.conf gitconfig vimrc zshrc gitCommitMessage.txt"
     directories="emacs.d atom tmux"
     scripts="clean_jboss emacs"
 else
