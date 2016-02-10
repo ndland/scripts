@@ -1,7 +1,7 @@
 <?php
 
 // Put your device token here (without spaces):
-$deviceToken = 'd07801403ec7e8b8c9f25395c39de230f3b86a872ceef2445605f712a21aa97a';
+$deviceToken = '5dd43251b984a1bef80d412834acd8999cc47f22f9e20881f452072848e0adb8';
 
 // Put your private key's passphrase here:
 $passphrase = 'authen2cate';
