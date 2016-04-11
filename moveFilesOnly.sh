@@ -7,6 +7,7 @@
 
 ########## Variables
 dir=~/dotfiles                    # dotfiles directory
+zshdir=~/dotfiles/zsh
 olddir=~/dotfiles_old             # old dotfiles backup directory
 config=~/.config
 userBin=~/bin
@@ -15,7 +16,8 @@ userScripts=~/code/scripts
 
 # If you're on a mac, otherwise, assume Linux.
 if [ `uname` == 'Darwin' ]; then
-    files="ideavimrc vrapperrc ackrc tmux.conf gitconfig vimrc zshrc gitCommitMessage"
+    files="ideavimrc vrapperrc ackrc tmux.conf gitconfig vimrc gitCommitMessage"
+    zshfiles="zshrc"
     directories="emacs.d atom tmux vim"
     scripts="clean_jboss emacs"
 else
@@ -50,6 +52,14 @@ for file in $files; do
 	mv ~/.$file ~/dotfiles_old/ > /dev/null 2>&1
 	ln -s $dir/$file ~/.$file > /dev/null 2>&1
     fi
+done
+
+echo "Changing to $zshdir"
+cd $zshdir
+
+for file in $zshfiles; do
+  echo "Creating symlink to $zshfiles in home directory"
+  ln -s $zshdir/$file ~/.$file > /dev/null 2>&1
 done
 
 # Move any existing directories out of homedir to dotfiles_old, and create some
