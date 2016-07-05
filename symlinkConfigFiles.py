@@ -2,26 +2,30 @@
 
 import os
 
-dotfiles_directory = "/home/nland/dotfiles/"
-home_directory = "/home/nland/"
+dotfiles_directory = "/Users/nland/dotfiles/"
+home_directory = "/Users/nland/"
 
 system = os.uname()[0]
 
 # List out our files that we want to symlink
-files_to_symlink = ["ackrc", "gitCommitMessage"]
+files_to_symlink = ["ackrc", "gitCommitMessage", "zsh/zshrc", "spacemacs", "gitconfig"]
 
 # List out our directories that we want to symlink
-directories_to_symlink = ["tmux"]
+directories_to_symlink = ["tmux", "emacs.d"]
 
 os.chdir(home_directory)
-print(os.getcwd())
 
 for file in files_to_symlink:
     if os.path.isfile("." + file):
         os.unlink(home_directory + "." + file)
-    os.symlink(dotfiles_directory + file, home_directory + "." + file)
+    if "zsh/" in file:
+        if os.path.isfile("." + file[4:]):
+            os.unlink(home_directory + "." + file[4:])
+        os.symlink(dotfiles_directory + file, home_directory + "." + file[4:])
+    else:
+        os.symlink(dotfiles_directory + file, home_directory + "." + file)
 
 for directory in directories_to_symlink:
     if os.path.isdir("." + directory):
         os.unlink(home_directory + "." + directory)
-    os.symlink(dotfiles_directory + directory, "/home/nland/." + directory)
+    os.symlink(dotfiles_directory + directory, home_directory + "." + directory)
