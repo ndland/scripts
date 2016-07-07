@@ -19,6 +19,7 @@ os.chdir(home_directory)
 for file in files_to_symlink:
     if os.path.isfile("." + file):
         os.unlink(home_directory + "." + file)
+    # Figure out a better way to handle these cases
     if "zsh/" in file:
         if os.path.isfile("." + file[4:]):
             os.unlink(home_directory + "." + file[4:])
